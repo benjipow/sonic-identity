@@ -146,7 +146,7 @@ export function TransformationSection() {
             <span className="text-xs font-mono uppercase tracking-[0.25em] text-stone">
               The Transformation
             </span>
-            <span className="text-xs font-mono text-stone/60 ml-auto">(02·5)</span>
+            <span className="text-xs font-mono text-stone/60 ml-auto">(02)</span>
           </div>
           <h2 className="font-serif-luxury text-3xl sm:text-5xl text-foreground font-normal tracking-tight">
             Drag to Reveal the Sonic Shift

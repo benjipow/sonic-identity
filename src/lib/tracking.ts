@@ -16,7 +16,7 @@ export const postTrackingEvent = (
     fileFields?: Record<RegisteredCustomFieldId, TrackingFileField>;
     imageDataFields?: Record<RegisteredCustomFieldId, TrackingImageDataField>;
   } = {},
-) => {
+): Promise<boolean> => {
   const { customFields = {}, fileFields = {}, imageDataFields = {} } = options;
   const eventPayload = {
     ...trackingPayload,
@@ -62,11 +62,15 @@ export const postTrackingEvent = (
 
   body.append("event", JSON.stringify(eventPayload));
 
-  fetch(CRM_CONFIG.endpoint, {
+  // Resolves true only when GHL accepts the event, so callers can show a real success state.
+  return fetch(CRM_CONFIG.endpoint, {
     method: "POST",
     headers: {
       version: "2021-07-28",
     },
     body,
-  }).catch(() => {});
+  }).then(
+    (res) => res.ok,
+    () => false,
+  );
 };

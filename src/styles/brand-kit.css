@@ -25,7 +25,7 @@
 .si-hand{font-family:'Permanent Marker',cursive;color:var(--si-lipstick);display:inline-block;transform:rotate(-3deg);transform-origin:left center;font-size:clamp(26px,2.6vw,36px);line-height:1.1}
 .si-hand--lit{color:var(--si-lipstick-lit)}
 .si-anton{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;line-height:.9;font-size:clamp(64px,12vw,184px);color:var(--si-bone)}
-.si-grain::before{content:'';position:absolute;inset:0;background-image:url('assets/textures/grain.svg');opacity:.5;pointer-events:none;mix-blend-mode:multiply}
+.si-grain::before{content:'';position:absolute;inset:0;background-image:url('/textures/grain.svg');opacity:.5;pointer-events:none;mix-blend-mode:multiply}
 .si-grain>*{position:relative}
 
 /* Buttons: radius 0, 240ms ease-out */
@@ -64,9 +64,9 @@
 .si-ways__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .si-card{display:flex;flex-direction:column}
 .si-card__skin{position:relative;aspect-ratio:4/5;background-size:cover;background-position:center;border:1px solid var(--si-smoke)}
-.si-skin--croc{background-image:url('assets/textures/croc-onyx.svg')}
-.si-skin--zebra{background-image:url('assets/textures/zebra-bone.svg')}
-.si-skin--leopard{background-image:url('assets/textures/leopard-camel.svg')}
+.si-skin--croc{background-image:url('/textures/croc-onyx.svg')}
+.si-skin--zebra{background-image:url('/textures/zebra-bone.svg')}
+.si-skin--leopard{background-image:url('/textures/leopard-camel.svg')}
 .si-tag{position:absolute;top:16px;left:16px;background:var(--si-gilt);color:var(--si-onyx);padding:7px 10px;font-size:11px}
 .si-plate{position:absolute;left:24px;right:24px;bottom:24px;padding:22px 22px 24px}
 .si-plate--ox{background:var(--si-oxblood);color:var(--si-bone)}
@@ -101,7 +101,7 @@
 .si-lab__cap{color:var(--si-concrete);margin-top:32px;text-align:center;position:relative}
 
 /* (06) Free guide */
-.si-guide{padding:160px 0;text-align:center;border-top:1px solid var(--si-smoke);background:linear-gradient(rgba(10,9,8,.45),rgba(10,9,8,.45)),url('assets/textures/croc-onyx-wide.svg') center/cover}
+.si-guide{padding:160px 0;text-align:center;border-top:1px solid var(--si-smoke);background:linear-gradient(rgba(10,9,8,.45),rgba(10,9,8,.45)),url('/textures/croc-onyx-wide.svg') center/cover}
 .si-label-plate{display:inline-block;background:var(--si-onyx);color:var(--si-gilt);padding:8px 12px;margin-bottom:32px}
 .si-guide .si-hand{margin:22px 0 48px;transform-origin:center}
 .si-hand-row{display:block}
@@ -134,3 +134,7 @@
   .si-about__photo{max-width:440px}
 }
 @media (prefers-reduced-motion:reduce){.si-marquee__track,.si-lab.is-open .si-spin{animation:none}}
+
+/* Host-page adjustment (not in the handoff): the site sets line-height:1.5 (Tailwind preflight) and a
+   slight negative letter-spacing on the page; the approved mockup was built against browser defaults. */
+.si{line-height:normal;letter-spacing:normal}

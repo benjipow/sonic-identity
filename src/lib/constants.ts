@@ -1,21 +1,24 @@
+// Production origin, used where a full URL is required (og:image / twitter:image).
+export const SITE_URL = "https://thesonicidentity.com";
+
+// All images are self-hosted from /public/images (moved off the GoHighLevel CDN).
 export const ASSETS = {
-  // User uploaded hero with alligator skin texture & Chayenne Mallari
-  heroAlligatorBg:
-    "https://vibe.filesafe.space/1790806133931036680/attachments/b305cbf3-2e57-4a2d-a774-a50ab0a91f1d.png",
-  alligatorSkin:
-    "https://vibe.filesafe.space/1790806133931036680/attachments/b305cbf3-2e57-4a2d-a774-a50ab0a91f1d.png",
-  alligatorSkinAlt:
-    "https://vibe.filesafe.space/1790806133931036680/attachments/874696c8-50d6-451a-9cf7-7b0454d23d47.jpg",
-  heroPortrait:
-    "https://vibe.filesafe.space/1790806133931036680/attachments/72106928-44ba-4993-b531-26002cefe974.png",
-  soundStudio:
-    "https://vibe.filesafe.space/1790806133931036680/attachments/61112aca-43f6-4c69-a38b-1b365257fcef.png",
-  acousticAtmosphere:
-    "https://vibe.filesafe.space/1790806133931036680/attachments/03b77d05-edbd-495c-8441-aaa33b383dad.png",
-  brandCollateral:
-    "https://vibe.filesafe.space/1790806133931036680/attachments/03e48de8-154f-40dc-a719-6e57f80bfe17.png",
-  editorialPortrait:
-    "https://vibe.filesafe.space/1790806133931036680/attachments/fa7524ee-11dd-4033-9b54-b67b541a6f54.jpg",
+  // Chayenne Mallari portrait on alligator skin texture (hero, The Architect, social preview)
+  heroAlligatorBg: "/images/chayenne-portrait.png",
+  alligatorSkin: "/images/chayenne-portrait.png",
+  chayennePortrait: "/images/chayenne-portrait.png",
+  alligatorSkinAlt: "/images/croc-leather-texture.jpg",
+  // Brand-board slide "Personality & Voice" (was misnamed heroPortrait)
+  brandBoardPersonality: "/images/brand-board-personality-voice.png",
+  soundStudio: "/images/brand-board-visual-style.png",
+  acousticAtmosphere: "/images/brand-board-logo-wordmark.png",
+  brandCollateral: "/images/brand-board-typography.png",
+  editorialPortrait: "/images/brand-board-color-palette.jpg",
+};
+
+// Shown only in the inquiry form's error state, so the visitor still has a way to reach Chayenne.
+export const CONTACT = {
+  email: "chayennemallari@gmail.com",
 };
 
 export const CRM_CONFIG = {
