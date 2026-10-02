@@ -1,0 +1,136 @@
+/* ============================================================
+   Sonic Identity · brand-kit styles for the new homepage sections
+   Palette, type and rules from "Chayenne Mallari Design System Vol. 01".
+   All classes are prefixed .si- so nothing collides with the existing Tailwind.
+   Load fonts.css first.
+============================================================= */
+:root{
+  --si-onyx:#0A0908; --si-leather:#1D1715; --si-smoke:#37322E; --si-bone:#E8E3DA;
+  --si-lipstick:#B52E2C; --si-lipstick-lit:#E0483F; --si-pewter:#877F77; --si-concrete:#B2ABA2;
+  --si-camel:#9A774F; --si-mahogany:#583323; --si-oxblood:#4A0B0E; --si-gilt:#B08D57;
+  --si-ease:240ms ease-out;
+}
+.si{position:relative;font-family:Inter,system-ui,sans-serif;color:var(--si-bone);background:var(--si-onyx);scroll-margin-top:88px;-webkit-font-smoothing:antialiased}
+.si *,.si *::before,.si *::after{box-sizing:border-box}
+:where(.si) :where(p,h2,h3,figure,blockquote){margin:0}
+.si-wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+
+/* Type voices */
+.si-mono{font-family:'Space Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;line-height:1.4}
+.si-kicker{color:var(--si-gilt);margin-bottom:28px}
+.si-paper{background-color:var(--si-bone);color:var(--si-onyx)}
+.si-paper .si-kicker{color:var(--si-mahogany)}
+.si-display{font-family:'Bodoni Moda',Didot,serif;font-weight:400;line-height:.98;letter-spacing:-.025em}
+.si-display em{font-style:italic}
+.si-hand{font-family:'Permanent Marker',cursive;color:var(--si-lipstick);display:inline-block;transform:rotate(-3deg);transform-origin:left center;font-size:clamp(26px,2.6vw,36px);line-height:1.1}
+.si-hand--lit{color:var(--si-lipstick-lit)}
+.si-anton{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;line-height:.9;font-size:clamp(64px,12vw,184px);color:var(--si-bone)}
+.si-grain::before{content:'';position:absolute;inset:0;background-image:url('assets/textures/grain.svg');opacity:.5;pointer-events:none;mix-blend-mode:multiply}
+.si-grain>*{position:relative}
+
+/* Buttons: radius 0, 240ms ease-out */
+.si-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font:600 13px/1 Inter,system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;padding:19px 30px;border:1px solid transparent;border-radius:0;text-decoration:none;cursor:pointer;transition:background-color var(--si-ease),color var(--si-ease),border-color var(--si-ease)}
+.si-btn:focus-visible{outline:2px solid var(--si-gilt);outline-offset:3px}
+.si-btn--bone{background:var(--si-bone);color:var(--si-onyx)}.si-btn--bone:hover{background:var(--si-concrete)}
+.si-btn--ghost{border-color:var(--si-bone);color:var(--si-bone);background:transparent}.si-btn--ghost:hover{background:var(--si-bone);color:var(--si-onyx)}
+.si-btn--red{background:var(--si-lipstick);color:var(--si-bone)}.si-btn--red:hover{background:var(--si-lipstick-lit)}
+.si-btn--onyx{background:var(--si-onyx);color:var(--si-bone)}.si-btn--onyx:hover{background:var(--si-leather)}
+.si-ico{font-size:10px}
+
+/* (03) Problem */
+.si-problem{padding:128px 0;border-top:1px solid var(--si-smoke)}
+.si-problem__grid{display:grid;grid-template-columns:7fr 1fr 4fr;gap:24px;align-items:stretch}
+.si-problem h2{font-size:clamp(42px,5vw,67px);max-width:15ch;margin-bottom:48px}
+.si-body{max-width:34em;font-size:17px;line-height:1.65;color:var(--si-concrete)}
+.si-body p+p{margin-top:18px}
+.si-lead{color:var(--si-bone);font-size:20px;font-weight:500}
+.si-body .si-fix{color:var(--si-bone);font-weight:600;margin-top:36px}
+.si-problem .si-hand{margin-top:14px}
+.si-problem__art{grid-column:3;position:relative;border:1px solid var(--si-smoke);background:var(--si-onyx);min-height:520px;overflow:hidden}
+.si-problem__art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.si-credits{position:absolute;left:20px;bottom:18px;color:var(--si-concrete);font-size:11px}
+
+/* Band */
+.si-marquee{background:var(--si-bone);color:var(--si-onyx);overflow:hidden;border-block:1px solid var(--si-onyx);padding:22px 0}
+.si-marquee__track{display:flex;align-items:center;width:max-content;animation:si-marquee 48s linear infinite}
+.si-marquee__track span{font:800 clamp(20px,2.2vw,30px)/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.02em;white-space:nowrap;padding:0 28px}
+.si-marquee__track i{font-style:normal;color:var(--si-lipstick);font-size:12px}
+@keyframes si-marquee{to{transform:translateX(-50%)}}
+
+/* (04) Three ways in */
+.si-ways{padding:128px 0}
+.si-ways .si-kicker{text-align:center;margin-bottom:20px}
+.si-ways .si-ways__title{font-size:clamp(60px,10vw,140px);text-align:center;margin-bottom:96px}
+.si-ways__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.si-card{display:flex;flex-direction:column}
+.si-card__skin{position:relative;aspect-ratio:4/5;background-size:cover;background-position:center;border:1px solid var(--si-smoke)}
+.si-skin--croc{background-image:url('assets/textures/croc-onyx.svg')}
+.si-skin--zebra{background-image:url('assets/textures/zebra-bone.svg')}
+.si-skin--leopard{background-image:url('assets/textures/leopard-camel.svg')}
+.si-tag{position:absolute;top:16px;left:16px;background:var(--si-gilt);color:var(--si-onyx);padding:7px 10px;font-size:11px}
+.si-plate{position:absolute;left:24px;right:24px;bottom:24px;padding:22px 22px 24px}
+.si-plate--ox{background:var(--si-oxblood);color:var(--si-bone)}
+.si-plate--bone{background:var(--si-bone);color:var(--si-onyx)}
+.si-plate .si-mono{font-size:11px;opacity:.75;margin-bottom:10px}
+.si-plate h3{font-size:clamp(26px,2.3vw,32px);line-height:1.04}
+.si-card__label{color:var(--si-gilt);margin:28px 0 12px;font-size:13px}
+.si-card__desc{color:var(--si-concrete);font-size:15px;line-height:1.6;flex:1}
+.si-card .si-btn{margin-top:28px;width:100%}
+
+/* (05) Meet the Lab */
+.si-lab{display:grid;grid-template-columns:1fr 1fr}
+.si-lab__left{padding:120px 64px 120px max(40px,calc((100vw - 1280px)/2 + 40px))}
+.si-lab .si-lab__title{font-size:clamp(64px,8vw,118px);margin-bottom:28px}
+.si-lab__sub{font-size:21px;line-height:1.45;font-weight:500;max-width:24em}
+.si-lab__note{color:var(--si-lipstick);margin-top:18px}
+.si-dms{margin:56px 0 48px}
+.si-dms__label{color:var(--si-mahogany);margin-bottom:20px}
+.si-dm{max-width:430px;padding:20px 22px;font-size:15px;line-height:1.55}
+.si-dm cite{display:block;margin-top:14px;font-style:normal;font-size:11px}
+.si-dm--1{background:var(--si-onyx);color:var(--si-bone);transform:rotate(-.8deg)}
+.si-dm--2{background:var(--si-concrete);color:var(--si-onyx);margin:-10px 0 0 96px;transform:rotate(.7deg)}
+.si-dm--3{background:var(--si-leather);color:var(--si-bone);margin:-8px 0 0 28px;transform:rotate(-.4deg)}
+.si-dm--1 cite,.si-dm--3 cite{color:var(--si-concrete)}.si-dm--2 cite{color:var(--si-leather)}
+.si-lab__right{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:96px 48px;border-left:1px solid var(--si-smoke);overflow:hidden}
+.si-lab__groove{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3}
+.si-vinyl{width:min(80%,480px);position:relative}
+.si-vinyl__svg{width:100%;height:auto;display:block}
+.si-spin{transform-origin:200px 200px}
+.si-lab.is-open .si-spin{animation:si-spin 1.8s linear infinite}
+@keyframes si-spin{to{transform:rotate(360deg)}}
+.si-lab__cap{color:var(--si-concrete);margin-top:32px;text-align:center;position:relative}
+
+/* (06) Free guide */
+.si-guide{padding:160px 0;text-align:center;border-top:1px solid var(--si-smoke);background:linear-gradient(rgba(10,9,8,.45),rgba(10,9,8,.45)),url('assets/textures/croc-onyx-wide.svg') center/cover}
+.si-label-plate{display:inline-block;background:var(--si-onyx);color:var(--si-gilt);padding:8px 12px;margin-bottom:32px}
+.si-guide .si-hand{margin:22px 0 48px;transform-origin:center}
+.si-hand-row{display:block}
+
+/* (07) The architect */
+.si-about{padding:128px 0;background-image:linear-gradient(rgba(55,50,46,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(55,50,46,.09) 1px,transparent 1px);background-size:48px 48px}
+.si-about__grid{display:grid;grid-template-columns:5fr 1fr 6fr;gap:24px;align-items:center}
+.si-about__photo{grid-column:1;border:1px solid var(--si-onyx);background:var(--si-onyx)}
+.si-about__photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:52% 30%;filter:grayscale(1) sepia(.12) contrast(1.12) brightness(.95)}
+.si-about__photo figcaption{display:flex;justify-content:space-between;padding:14px 16px;color:var(--si-concrete);font-size:11px}
+.si-about__copy{grid-column:3}
+.si-about h2{font-size:clamp(44px,5vw,67px);margin-bottom:40px}
+.si-body--dark{color:var(--si-smoke)}.si-body--dark strong{color:var(--si-onyx);font-weight:600}
+.si-about .si-btn{margin-top:40px}
+
+/* Mobile */
+@media (max-width:960px){
+  .si-wrap{padding:0 24px}
+  .si-problem,.si-ways,.si-about{padding:64px 0}
+  .si-problem__grid,.si-about__grid{grid-template-columns:1fr}
+  .si-problem__art,.si-about__copy,.si-about__photo{grid-column:auto}
+  .si-problem__art{min-height:340px;margin-top:40px}
+  .si-ways__grid{grid-template-columns:1fr}
+  .si-ways .si-ways__title{margin-bottom:56px}
+  .si-lab{grid-template-columns:1fr}
+  .si-lab__left{padding:64px 24px}
+  .si-lab__right{padding:64px 24px;border-left:0;border-top:1px solid var(--si-smoke)}
+  .si-dm--2,.si-dm--3{margin-left:16px}
+  .si-guide{padding:96px 0}
+  .si-about__photo{max-width:440px}
+}
+@media (prefers-reduced-motion:reduce){.si-marquee__track,.si-lab.is-open .si-spin{animation:none}}
