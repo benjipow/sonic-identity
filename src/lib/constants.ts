@@ -16,10 +16,9 @@ export const ASSETS = {
   editorialPortrait: "/images/brand-board-color-palette.jpg",
 };
 
-// Shown when an inquiry fails to send, so the visitor still has a way to reach Chayenne.
-// TODO: confirm the address before launch — the error message omits it while empty.
+// Shown only in the inquiry form's error state, so the visitor still has a way to reach Chayenne.
 export const CONTACT = {
-  email: "",
+  email: "chayennemallari@gmail.com",
 };
 
 export const CRM_CONFIG = {

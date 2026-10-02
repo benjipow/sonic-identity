@@ -320,22 +320,15 @@ export function SonicInquiryForm() {
               role="alert"
               className="border border-brand-red/60 bg-brand-red/10 p-4 text-sm text-foreground leading-relaxed"
             >
-              <p className="font-medium">Your inquiry didn’t send.</p>
-              <p className="text-muted-foreground font-light mt-1">
-                Nothing was received on our side. Please try again in a moment
-                {CONTACT.email ? (
-                  <>
-                    , or email{" "}
-                    <a
-                      href={`mailto:${CONTACT.email}`}
-                      className="text-sand underline underline-offset-4 hover:text-primary"
-                    >
-                      {CONTACT.email}
-                    </a>{" "}
-                    directly
-                  </>
-                ) : null}
-                .
+              <p>
+                That didn’t go through. Email{" "}
+                <a
+                  href={`mailto:${CONTACT.email}`}
+                  className="text-sand underline underline-offset-4 hover:text-primary"
+                >
+                  {CONTACT.email}
+                </a>{" "}
+                and we’ll pick it up from there.
               </p>
             </div>
           )}
