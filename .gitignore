@@ -31,3 +31,6 @@ src/tailwind.config.vibe.json
 *.njsproj
 *.sln
 *.sw?
+
+# Redesign handoff working folder (not shipped)
+_handoff/

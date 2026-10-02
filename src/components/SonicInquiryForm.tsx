@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CheckCircle2, ArrowRight, Loader2, Sparkles, ArrowUpRight } from "lucide-react";
-import { CRM_CONFIG } from "../lib/constants";
+import { CONTACT, CRM_CONFIG } from "../lib/constants";
 import { postTrackingEvent } from "../lib/tracking";
 
 export function SonicInquiryForm() {
@@ -16,9 +16,9 @@ export function SonicInquiryForm() {
     brandStory: "",
   });
 
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.email || !formData.firstName) return;
 
@@ -60,7 +60,7 @@ export function SonicInquiryForm() {
       },
     };
 
-    postTrackingEvent(trackingPayload, {
+    const sent = await postTrackingEvent(trackingPayload, {
       customFields: {
         [CRM_CONFIG.customFields.package]: {
           value: formData.package,
@@ -77,9 +77,8 @@ export function SonicInquiryForm() {
       },
     });
 
-    setTimeout(() => {
-      setStatus("success");
-    }, 600);
+    // Only confirm once GHL has actually accepted the inquiry.
+    setStatus(sent ? "success" : "error");
   };
 
   return (
@@ -138,7 +137,7 @@ export function SonicInquiryForm() {
           </div>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form method="post" onSubmit={handleSubmit} className="space-y-8">
           <div className="space-y-3">
             <h3 className="font-serif-luxury text-3xl sm:text-5xl text-foreground font-normal tracking-tight">
               Initiate Your Acoustic Authority
@@ -158,6 +157,7 @@ export function SonicInquiryForm() {
                 required
                 type="text"
                 placeholder="Eleanor"
+                name="first_name"
                 value={formData.firstName}
                 onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                 className="w-full border-b border-border bg-transparent py-3 text-sm text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:outline-none transition-colors"
@@ -170,6 +170,7 @@ export function SonicInquiryForm() {
               <input
                 type="text"
                 placeholder="Vance"
+                name="last_name"
                 value={formData.lastName}
                 onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                 className="w-full border-b border-border bg-transparent py-3 text-sm text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:outline-none transition-colors"
@@ -186,6 +187,7 @@ export function SonicInquiryForm() {
                 required
                 type="email"
                 placeholder="founder@maison.com"
+                name="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full border-b border-border bg-transparent py-3 text-sm text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:outline-none transition-colors"
@@ -198,6 +200,7 @@ export function SonicInquiryForm() {
               <input
                 type="tel"
                 placeholder="+1 (555) 019-2834"
+                name="phone"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className="w-full border-b border-border bg-transparent py-3 text-sm text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:outline-none transition-colors"
@@ -213,6 +216,7 @@ export function SonicInquiryForm() {
               <input
                 type="text"
                 placeholder="Maison Aurelia"
+                name="organization"
                 value={formData.organization}
                 onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                 className="w-full border-b border-border bg-transparent py-3 text-sm text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:outline-none transition-colors"
@@ -225,6 +229,7 @@ export function SonicInquiryForm() {
               <input
                 type="text"
                 placeholder="https://maisonaurelia.com"
+                name="website"
                 value={formData.website}
                 onChange={(e) => setFormData({ ...formData, website: e.target.value })}
                 className="w-full border-b border-border bg-transparent py-3 text-sm text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:outline-none transition-colors"
@@ -238,6 +243,7 @@ export function SonicInquiryForm() {
                 Acoustic Architecture Scope
               </label>
               <select
+                name="package"
                 value={formData.package}
                 onChange={(e) => setFormData({ ...formData, package: e.target.value })}
                 className="w-full border-b border-border bg-transparent py-3 text-sm text-foreground focus:border-primary focus:outline-none transition-colors"
@@ -271,6 +277,7 @@ export function SonicInquiryForm() {
                 Industry Sector
               </label>
               <select
+                name="industry"
                 value={formData.industry}
                 onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
                 className="w-full border-b border-border bg-transparent py-3 text-sm text-foreground focus:border-primary focus:outline-none transition-colors"
@@ -301,11 +308,37 @@ export function SonicInquiryForm() {
             <textarea
               rows={3}
               placeholder="Describe your desired sensory presence, acoustic feelings, or upcoming brand milestones..."
+              name="brand_story"
               value={formData.brandStory}
               onChange={(e) => setFormData({ ...formData, brandStory: e.target.value })}
               className="w-full border-b border-border bg-transparent py-3 text-sm text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:outline-none resize-none transition-colors"
             />
           </div>
+
+          {status === "error" && (
+            <div
+              role="alert"
+              className="border border-brand-red/60 bg-brand-red/10 p-4 text-sm text-foreground leading-relaxed"
+            >
+              <p className="font-medium">Your inquiry didn’t send.</p>
+              <p className="text-muted-foreground font-light mt-1">
+                Nothing was received on our side. Please try again in a moment
+                {CONTACT.email ? (
+                  <>
+                    , or email{" "}
+                    <a
+                      href={`mailto:${CONTACT.email}`}
+                      className="text-sand underline underline-offset-4 hover:text-primary"
+                    >
+                      {CONTACT.email}
+                    </a>{" "}
+                    directly
+                  </>
+                ) : null}
+                .
+              </p>
+            </div>
+          )}
 
           <div className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <p className="text-[11px] font-mono text-muted-foreground/80">
