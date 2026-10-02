@@ -1,0 +1,225 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Elementis-inspired luxury organic & sonic palette tokens */
+  --color-sand: var(--sand);
+  --color-sand-light: var(--sand-light);
+  --color-sand-dark: var(--sand-dark);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-dark: var(--terracotta-dark);
+  --color-warm-ochre: var(--warm-ochre);
+  --color-deep-charcoal: var(--deep-charcoal);
+  --color-stone: var(--stone);
+  --color-cream: var(--cream);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-brand-red: var(--brand-red);
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+:root {
+  --radius: 0.25rem;
+  /* Deep architectural charcoal/dark espresso from palette (#0a0809, #1c1716) */
+  --background: oklch(0.14 0.012 35);
+  /* Refined warm linen / sand text (#e8e3db) */
+  --foreground: oklch(0.92 0.015 75);
+  /* Architectural slate-espresso card (#1c1716) */
+  --card: oklch(0.18 0.014 38);
+  --card-foreground: oklch(0.92 0.015 75);
+  --popover: oklch(0.16 0.014 38);
+  --popover-foreground: oklch(0.92 0.015 75);
+
+  /* Bright signature yellow (#E9DC3C) */
+  --primary: oklch(0.876 0.265 108);
+  --primary-foreground: oklch(0.14 0.012 35);
+
+  /* Subtle warm bronze / terracotta secondary */
+  --secondary: oklch(0.24 0.02 42);
+  --secondary-foreground: oklch(0.88 0.02 75);
+  --muted: oklch(0.25 0.015 45);
+  --muted-foreground: oklch(0.68 0.02 65);
+  --accent: oklch(0.28 0.035 32);
+  --accent-foreground: oklch(0.92 0.02 75);
+  --destructive: oklch(0.48 0.16 28);
+  --destructive-foreground: oklch(0.98 0 0);
+  /* Precision hairline borders */
+  --border: oklch(0.28 0.015 40);
+  --input: oklch(0.26 0.015 40);
+  --ring: oklch(0.68 0.09 78);
+
+  /* Specific palette variables from uploaded image */
+  --sand: oklch(0.91 0.018 78); /* #e8e3db */
+  --sand-light: oklch(0.95 0.012 78); /* #f4f0eb */
+  --sand-dark: oklch(0.72 0.02 72); /* #b1aca3 */
+  --terracotta: oklch(0.52 0.14 32); /* #a63a32 */
+  --terracotta-dark: oklch(0.32 0.1 28); /* #441011 */
+  --warm-ochre: oklch(0.876 0.265 108); /* #E9DC3C */
+  --deep-charcoal: oklch(0.12 0.01 35); /* #0a0809 */
+  --stone: oklch(0.56 0.018 65); /* #877f78 */
+  --cream: oklch(0.93 0.018 80);
+  --surface-elevated: oklch(0.2 0.015 38);
+  --brand-red: oklch(0.5 0.175 28); /* #B52E2C */
+}
+
+.dark {
+  --background: oklch(0.14 0.012 35);
+  --foreground: oklch(0.92 0.015 75);
+  --card: oklch(0.18 0.014 38);
+  --card-foreground: oklch(0.92 0.015 75);
+  --popover: oklch(0.16 0.014 38);
+  --popover-foreground: oklch(0.92 0.015 75);
+  --primary: oklch(0.876 0.265 108);
+  --primary-foreground: oklch(0.14 0.012 35);
+  --secondary: oklch(0.24 0.02 42);
+  --secondary-foreground: oklch(0.88 0.02 75);
+  --muted: oklch(0.25 0.015 45);
+  --muted-foreground: oklch(0.68 0.02 65);
+  --accent: oklch(0.28 0.035 32);
+  --accent-foreground: oklch(0.92 0.02 75);
+  --destructive: oklch(0.48 0.16 28);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.28 0.015 40);
+  --input: oklch(0.26 0.015 40);
+  --ring: oklch(0.876 0.265 108);
+
+  --sand: oklch(0.91 0.018 78);
+  --sand-light: oklch(0.95 0.012 78);
+  --sand-dark: oklch(0.72 0.02 72);
+  --terracotta: oklch(0.52 0.14 32);
+  --terracotta-dark: oklch(0.32 0.1 28);
+  --warm-ochre: oklch(0.876 0.265 108);
+  --deep-charcoal: oklch(0.12 0.01 35);
+  --stone: oklch(0.56 0.018 65);
+  --cream: oklch(0.93 0.018 80);
+  --surface-elevated: oklch(0.2 0.015 38);
+  --brand-red: oklch(0.5 0.175 28); /* #B52E2C */
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-serif-luxury {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Marquee infinite tape styling (Elementis signature) */
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Elementis geometric framing button hover stroke */
+.elementis-btn {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.elementis-btn::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid currentColor;
+  opacity: 0.4;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.elementis-btn:hover::after {
+  opacity: 1;
+}
+
+/* Laser zap click burst for CTA */
+@keyframes laserZap {
+  0% {
+    box-shadow:
+      0 0 0 0 oklch(0.876 0.265 108 / 0.9),
+      0 0 0 0 oklch(0.5 0.175 28 / 0.7);
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  20% {
+    box-shadow:
+      0 0 22px 4px oklch(0.876 0.265 108 / 0.95),
+      0 0 48px 8px oklch(0.5 0.175 28 / 0.55);
+    transform: scale(0.93);
+    filter: brightness(1.6);
+  }
+  55% {
+    box-shadow:
+      0 0 10px 1px oklch(0.876 0.265 108 / 0.5),
+      0 0 0 16px oklch(0.5 0.175 28 / 0);
+    transform: scale(1.03);
+    filter: brightness(1.2);
+  }
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.876 0.265 108 / 0);
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+.zapping {
+  animation: laserZap 0.52s cubic-bezier(0.16, 1, 0.3, 1);
+}
