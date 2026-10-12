@@ -151,6 +151,13 @@
   .font-serif-luxury {
     font-family: var(--font-serif);
   }
+  /* Saint Laurent-style wordmark: bold Helvetica, all caps, tight tracking */
+  .font-wordmark {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
 }
 
 /* Marquee infinite tape styling (Elementis signature) */
