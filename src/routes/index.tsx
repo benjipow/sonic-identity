@@ -66,10 +66,10 @@ function HomePage() {
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border/80">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3 group">
-            <span className="font-serif-luxury text-xl sm:text-2xl tracking-[0.08em] text-brand-red font-normal block leading-none">
+            <span className="wordmark-sl text-xl sm:text-2xl text-brand-red block leading-none">
               SONIC IDENTITY
             </span>
-            <span className="hidden sm:inline-block text-[10px] tracking-[0.3em] text-primary uppercase font-mono pl-3 border-l border-border">
+            <span className="tagline-syne hidden sm:inline-block text-[10px] text-cream pl-3 border-l border-border">
               by Chayenne Mallari
             </span>
           </a>
@@ -174,10 +174,10 @@ function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-border">
             {/* Col 1 */}
             <div className="md:col-span-5 space-y-4">
-              <span className="font-serif-luxury text-2xl tracking-[0.08em] text-brand-red font-normal block">
+              <span className="wordmark-sl text-2xl text-brand-red block">
                 SONIC IDENTITY
               </span>
-              <p className="text-xs font-mono uppercase tracking-[0.25em] text-stone">
+              <p className="tagline-syne text-xs text-stone">
                 By Chayenne Mallari
               </p>
               <p className="text-xs font-light text-muted-foreground/80 max-w-sm leading-relaxed pt-2">

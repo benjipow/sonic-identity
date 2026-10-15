@@ -153,6 +153,23 @@
   }
 }
 
+/* "SONIC IDENTITY" wordmark — Saint Laurent-style bold Helvetica */
+.wordmark-sl {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  -webkit-text-stroke: 0.6px currentColor;
+}
+
+/* "by Chayenne Mallari" tagline */
+.tagline-syne {
+  font-family: "Syne", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+}
+
 /* Marquee infinite tape styling (Elementis signature) */
 @keyframes marqueeScroll {
   0% {
